@@ -1,0 +1,39 @@
+version: '3.9'
+
+networks:
+  gym-app-network:
+    driver: bridge
+    name:  gym-app-network
+
+services:
+  backend:
+      container_name: gym-app-backend
+      build:
+        context: ./
+        dockerfile: ./docker/Dockerfile
+      networks:
+        - gym-app-network
+      depends_on:
+        - db
+      ports:
+        - "8000:8000"
+        - "5678:5678"
+      volumes:
+        - ./app:/app
+      env_file:
+        - .env
+
+  db:
+    container_name: gym-app-db
+    image: mysql:latest
+    restart: on-failure
+    command: --default-authentication-plugin=mysql_native_password --mysqlx=0
+    networks:
+      - gym-app-network
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+ 
+
+
