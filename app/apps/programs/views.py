@@ -2,14 +2,13 @@
 from rest_framework import viewsets, parsers, status, generics
 from rest_framework.response import Response
 from rest_framework.parsers import FormParser, MultiPartParser
-from rest_framework.permissions import IsAdminUser, AllowAny
-from .models import GymFile
-from .serializers import GymFileSerializer
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
+from .models import *
+from .serializers import *
 from rest_framework.views import APIView
 
 
 class GymFileUploadViewset(viewsets.ModelViewSet):
-    
     
     queryset = GymFile.objects.all()
     serializer_class = GymFileSerializer
@@ -27,5 +26,15 @@ class GymFileUploadViewset(viewsets.ModelViewSet):
         
 
 
+class ProgramViewset(viewsets.ModelViewSet):
+
+    queryset = Program.objects.all()
+    serializer_class = ProgramSerializer
+    permission_classes = [AllowAny]
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return ProgramNestedSerializer
+        return ProgramSerializer
 
 

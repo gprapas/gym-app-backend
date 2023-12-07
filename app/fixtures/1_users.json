@@ -7,11 +7,11 @@
           "last_login": null,
           "is_superuser": true,
           "is_staff": true,
-          "first_name": "Kostas",
+          "first_name": "George",
           "sex": "M",
-          "last_name": "Korompos",
+          "last_name": "Preip",
           "username": "admin",
-          "email": "random@email.com",
+          "email": "gprapas@gmail.com",
           "is_active": true,
           "date_joined": "2022-06-30T17:03:10.123Z"
         }
@@ -24,11 +24,11 @@
         "last_login": null,
         "is_superuser": false,
         "sex": "M",
-        "first_name": "Giorgos",
-        "last_name": "Preip",
+        "first_name": "Red",
+        "last_name": "Dragon",
         "is_staff": false,
         "username": "test",
-        "email": "random2@email.com",
+        "email": "random@email.com",
         "is_active": true,
         "date_joined": "2022-06-30T17:03:10.123Z"
       }
